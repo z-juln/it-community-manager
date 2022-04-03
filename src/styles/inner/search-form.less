@@ -1,0 +1,41 @@
+/**
+ * @description: search-form样式
+ * @template: 
+    <Form
+      layout='inline'
+      className='inner-search-form__wrapper'
+    >
+      <Form.Item name='xxx' label='xxx' style={{flexBasis: 300}}>
+        <Input />
+      </Form.Item>
+      <Form.Item className='inner-search-form__operate-btn-group'>
+        <Button type="primary" onClick={onSearch}>查询</Button>
+        <Button onClick={onReset}>重置</Button>
+      </Form.Item>
+    </Form>
+ */
+
+.@{inner-style-prefix}-search-form {
+  &__wrapper {
+    .ant-row.ant-form-item {
+      flex-basis: 25%;
+      margin: 0 0 15px 0;
+      margin-bottom: 15px;
+      padding: 0 0 0 10px;
+    }
+  }
+
+  &__operate-btn-group {
+    margin-left: auto !important;
+    .ant-form-item-control-input-content {
+      display: flex;
+      justify-content: center;
+      & > * {
+        margin-right: 30px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

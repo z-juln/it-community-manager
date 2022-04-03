@@ -1,0 +1,18 @@
+.bbs-banwu-post-action-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  & > button.ant-btn {
+    width: 60px;
+    padding: 2px 4px;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    border-width: 0;
+    font-size: 12px;
+    &::after {
+      display: none;
+    }
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+}

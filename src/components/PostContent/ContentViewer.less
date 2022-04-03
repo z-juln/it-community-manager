@@ -1,0 +1,63 @@
+.bbs-banwu-post-content-modal-viewer-wrapper {
+  .video-cover {
+    object-fit: cover;
+    height: 300px;
+    max-width: 100%;
+    &-box {
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      &::after {
+        position: absolute;
+        content: '';
+        background-image: url('https://i5.hoopchina.com.cn/blogfile/20213/11/BbsImg_111163080170585_1615451644_s_1359_o_w_74_h_76_69745.png');
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 50px;
+        height: 50px;
+        background-size: 100% 100%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+  .slate-video {
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    &::after {
+      position: absolute;
+      content: '';
+      background-image: url('https://i5.hoopchina.com.cn/blogfile/20213/11/BbsImg_111163080170585_1615451644_s_1359_o_w_74_h_76_69745.png');
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      width: 50px;
+      height: 50px;
+      background-size: 100% 100%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+  blockquote {
+    background-color: #f2f2f2;
+    color: #777;
+  }
+  video {
+    max-height: 300px;
+    width: auto;
+    max-width: 100%;
+  }
+  img:not(.video-cover) {
+    height: 300px;
+    object-fit: contain;
+    max-width: 100%;
+    cursor: pointer;
+  }
+  .ant-modal-footer {
+    display: none;
+  }
+}

@@ -1,0 +1,96 @@
+//  在table里面
+.bbs-banwu-reply-quote-wrapper.small-reply-quote {
+  background-color: #f2f2f2;
+  color: #777;
+  margin-bottom: 2px;
+  padding: 5px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+  word-break: break-all;
+  img {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+  }
+  .video-cover {
+    object-fit: cover;
+    height: 120px;
+    min-width: 100px;
+    &-box {
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      &::after {
+        position: absolute;
+        content: '';
+        background-image: url('https://i5.hoopchina.com.cn/blogfile/20213/11/BbsImg_111163080170585_1615451644_s_1359_o_w_74_h_76_69745.png');
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 35px;
+        height: 35px;
+        background-size: 100% 100%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+  video {
+    max-height: 120px;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+// 在modal里面
+.bbs-banwu-reply-quote-wrapper.large-reply-quote {
+  background-color: #f2f2f2;
+  color: #777;
+  margin-bottom: 2px;
+  padding: 5px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  img {
+    cursor: pointer;
+    height: 300px;
+    object-fit: cover;
+    max-width: 100%;
+  }
+  .video-cover {
+    object-fit: cover;
+    height: 120px;
+    min-width: 100%;
+    &-box {
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      &::after {
+        position: absolute;
+        content: '';
+        background-image: url('https://i5.hoopchina.com.cn/blogfile/20213/11/BbsImg_111163080170585_1615451644_s_1359_o_w_74_h_76_69745.png');
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 35px;
+        height: 35px;
+        background-size: 100% 100%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+  video {
+    max-height: 120px;
+    width: auto;
+    max-width: 100%;
+  }
+}

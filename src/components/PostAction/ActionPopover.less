@@ -1,0 +1,39 @@
+.post-action-popover-wrapper {
+  .action-content {
+    .radio-list-wrapper {
+      min-width: 400px;
+      .ant-radio-wrapper {
+        display: block;
+      }
+    }
+    .topic-cascader-wrapper {
+      border-top: 1px solid #ededed;
+      padding-top: 15px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      .label {
+        position: relative;
+        margin-right: 15px;
+        margin-left: 10px;
+        &::before {
+          position: absolute;
+          content: '*';
+          left: -10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: red;
+          z-index: 9;
+        }
+      }
+    }
+    .operate-area {
+      margin-top: 10px;
+      text-align: center;
+      .ant-btn {
+        &:first-child {
+          margin-right: 25px;
+        }
+      }
+    }
+  }
+}

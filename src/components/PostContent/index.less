@@ -1,0 +1,96 @@
+.bbs-banwu-post-content-wrapper {
+  padding-bottom: 5px;
+  text-align: left;
+  .video-cover {
+    object-fit: cover;
+    height: 110px;
+    min-width: 100px;
+    &-box {
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      &::after {
+        position: absolute;
+        content: '';
+        background-image: url('https://i5.hoopchina.com.cn/blogfile/20213/11/BbsImg_111163080170585_1615451644_s_1359_o_w_74_h_76_69745.png');
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 35px;
+        height: 35px;
+        background-size: 100% 100%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+  }
+  & > div[data-cell='content'] {
+    overflow: hidden;
+    text-align: left;
+    max-width: 500px;
+    max-height: 170px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+    word-break: break-all;
+    & > br {
+      display: none;
+    }
+    .slate-video {
+      cursor: pointer;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      &::after {
+        position: absolute;
+        content: '';
+        background-image: url('https://i5.hoopchina.com.cn/blogfile/20213/11/BbsImg_111163080170585_1615451644_s_1359_o_w_74_h_76_69745.png');
+        top: 50%;
+        left: 50%;
+        z-index: 10;
+        width: 35px;
+        height: 35px;
+        background-size: 100% 100%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    blockquote {
+      background-color: #f2f2f2;
+      color: #777;
+    }
+    video {
+      max-height: 120px;
+      width: auto;
+      max-width: 100%;
+    }
+    img {
+      cursor: pointer;
+      object-fit: cover;
+      max-width: 200px;
+      height: 100px;
+    }
+  }
+  .operate-area {
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .split-icon {
+      height: 12px;
+      width: 1px;
+      background-color: #d5d5d5;
+    }
+    .ant-btn.ant-btn-link {
+      padding: 0 3px;
+      &:last-child {
+        ::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

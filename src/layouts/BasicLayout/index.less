@@ -1,0 +1,47 @@
+.bbs-banwu-basic-layout {
+  .ant-pro-sider {
+    .ant-pro-sider-logo {
+      padding: 20px 29px 27px 28px;
+      & > a {
+        align-items: flex-end;
+        & > img {
+          width: 48px;
+          height: 40px;
+        }
+        & > h1 {
+          font-size: 20px;
+          font-family: 'ali-puhui';
+          font-weight: 800;
+          color: #000;
+          line-height: 20px;
+          height: auto;
+          margin-left: 3px;
+        }
+      }
+    }
+    &.ant-layout-sider-collapsed {
+      .ant-pro-sider-logo {
+        padding: 16px 8px;
+        & > a {
+          align-items: flex-end;
+          & > img {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+  .ant-layout-content {
+    .ant-pro-page-container-warp {
+      background: transparent;
+      .ant-page-header {
+        background: transparent;
+        padding-bottom: 0;
+        .ant-breadcrumb > span:last-child a {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

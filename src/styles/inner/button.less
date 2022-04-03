@@ -1,0 +1,52 @@
+/**
+ * @description: 在antd的Button样式上封装的样式
+ * @template: 
+    <div className="inner-button__pass-button-group">
+      <Button className="inner-button__pass-button">通过</Button>
+      <Button className="inner-button__reject-button">拒绝</Button>
+    </div>
+    和
+    <Button className="inner-button__rejected-button">已拒绝</Button>
+ */
+
+.@{inner-style-prefix}-button {
+  &__pass-button-group {
+    display: flex;
+    justify-content: center;
+    @middle-padding: 10px;
+    & > * {
+      margin-right: @middle-padding;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__pass-button {
+    .button();
+  }
+
+  &__reject-button {
+    .button();
+    color: white;
+    background-color: #f42e39;
+  }
+
+  &__rejected-button {
+    .button();
+    color: white;
+    background-color: #fbb2b4;
+    cursor: not-allowed;
+    &:hover {
+      color: white;
+      background-color: #fbb2b4;
+    }
+  }
+
+  .button() {
+    width: 86px;
+    .ant-radio-button-wrapper:first-child:last-child {
+      border: 2px;
+    }
+  }
+}
