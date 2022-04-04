@@ -1,7 +1,6 @@
 export { default as PostContent } from './PostContent'
 export { default as PostTitle } from './PostTitle'
 export { default as ReplyQuote } from './ReplyQuote'
-export { default as CustomTag } from './CustomTag'
 export { default as PostAction } from './PostAction'
 export { default as ActionPopover } from './PostAction/ActionPopover'
 export { default as ZoomTreeSelect } from './ZoomTreeSelect'

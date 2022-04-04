@@ -17,26 +17,11 @@ export type IUserInfo = {
 const RightContent = ({
   userInfo
 }: RightContentProps) => {
-  // const [isInputCollapsed, setIsInputCollapsed] = useState<boolean>(true)
-  // const [keyWord, setKeyWord] = useState<string>('')
-
-  const afLinkUrl = useMemo(() => {
-    return isDev ? '//af.hupu.com' : window.location.origin.replace('banwu', 'af')
-  }, [])
 
   return (
     <div className='bbs-banwu-layout-header-right-content-wrapper'>
-      {/* <Input
-        placeholder='搜索'
-        prefix={<img className='search-icon' src={SearchIcon} />}
-        onFocus={() => setIsInputCollapsed(false)}
-        onBlur={() => setIsInputCollapsed(true)}
-        style={{ width: (keyWord || !isInputCollapsed) ? 250 : 104 }}
-        value={keyWord}
-        onChange={(e) => setKeyWord(e.target.value)}
-      /> */}
       <section className='operate-area no-split'>
-        <a href={afLinkUrl} target='_blank' className='af-out-link'>虎扑版主后台</a>
+        <a href='http://127.0.0.1:3333' target='_blank' className='af-out-link'>前台</a>
       </section>
       <section className='operate-area user-info'>
         <Avatar size='small' icon={<UserOutlined />} src={userInfo.avatar} />

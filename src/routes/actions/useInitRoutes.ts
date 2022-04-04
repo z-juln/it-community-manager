@@ -24,6 +24,7 @@ const useInitRoutes = () => {
             avatar,
             username: name,
           });
+          localStorage.setItem('token', res.token);
         }
       })
       .finally(() => setLoading(false));

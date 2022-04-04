@@ -84,6 +84,7 @@ const initRoutes: RouteConfigType[] = [
   {
     path: '/discuss',
     name: '评论管理',
+    icon: MenuIconMap['home'],
     children: [
       {
         path: '/discuss',
@@ -100,6 +101,7 @@ const initRoutes: RouteConfigType[] = [
   {
     path: '/provider',
     name: '贡献者管理',
+    icon: MenuIconMap['home'],
     children: [
       {
         path: '/provider',

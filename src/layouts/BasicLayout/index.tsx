@@ -11,6 +11,7 @@ import useInitRoutes from '@/routes/actions/useInitRoutes';
 import { useMount, useUserInfo } from '@/utils/custom-hooks';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
+import allRoutes from '@/routes/initRoutes.config';
 
 const LayoutConfig: ProLayoutProps = {
   title: '后台管理',

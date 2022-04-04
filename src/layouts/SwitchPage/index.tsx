@@ -21,8 +21,8 @@ const SwitchPage: React.FC<SwitchPageProps> = (props: SwitchPageProps) => {
             to={item.redirect}
            />
         )
-      } else if(item.children) {
-        result = result.concat(renderRoute(item.children))
+      } else if(item.routes) {
+        result = result.concat(renderRoute(item.routes as any))
       } else {
         result.push(<Route
           key={item.path}

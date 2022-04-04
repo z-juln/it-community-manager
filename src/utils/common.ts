@@ -24,8 +24,6 @@ export const hexToRgba = (hex: string, opacity: number = 1) => {
 // 退出登录，先到logout清掉cookie，再到 passport登录页面（后面带上回流的地址），
 export const logout = () => {
   PubSub.publish('logout')
-  const loginUrl = `https://passport.hupu.com/login?project=hupu&jumpurl=${encodeURIComponent(window.location.href)}`
-  window.location.href = `https://passport.hupu.com/pc/logout?jumpurl=${encodeURIComponent(loginUrl)}`
 }
 
 // 判断火狐浏览器
