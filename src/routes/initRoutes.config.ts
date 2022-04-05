@@ -111,7 +111,7 @@ const initRoutes: RouteConfigType[] = [
       {
         path: '/provider/apply',
         name: '审核',
-        template: lazy(() => import('@/pages/Provider/Apply')),
+        template: lazy(() => import('@/pages/StudyItem/Apply')),
       },
     ],
   },

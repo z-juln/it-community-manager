@@ -1,11 +1,9 @@
-import type { PaginationProps } from './interface';
+import type { PaginationProps } from 'antd/es/pagination';
 import { memo, useEffect, useState } from 'react'
 import { Button, Form, Input, message, Select, Space, Table } from 'antd'
-import SearchForm from './components/SearchForm'
 import { debounce } from 'lodash-es'
 import * as API from '@/apis/Provider'
 import { Apply } from '@/model';
-import { ColumnsType } from 'antd/lib/table';
 
 export interface SearchParams {
   uid: number;
