@@ -4,12 +4,29 @@ import { lazy } from 'react';
 
 const initRoutes: RouteConfigType[] = [
   {
+    path: '/user',
+    name: '用户管理',
+    icon: MenuIconMap['home'],
+    children: [
+      {
+        path: '/',
+        exact: true,
+        redirect: '/user/edit',
+      },
+      {
+        path: '/user/edit',
+        name: '编辑',
+        template: lazy(() => import('@/pages/User/Edit')),
+      },
+    ],
+  },
+  {
     path: '/study-route',
     name: '学习路线管理',
     icon: MenuIconMap['home'],
     children: [
       {
-        path: '/',
+        path: '/study-route',
         exact: true,
         redirect: '/study-route/apply',
       },
@@ -111,7 +128,7 @@ const initRoutes: RouteConfigType[] = [
       {
         path: '/provider/apply',
         name: '审核',
-        template: lazy(() => import('@/pages/StudyItem/Apply')),
+        template: lazy(() => import('@/pages/Provider/Apply')),
       },
     ],
   },

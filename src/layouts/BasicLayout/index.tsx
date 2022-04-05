@@ -11,10 +11,11 @@ import useInitRoutes from '@/routes/actions/useInitRoutes';
 import { useMount, useUserInfo } from '@/utils/custom-hooks';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
-import allRoutes from '@/routes/initRoutes.config';
+import logoSrc from '@/assets/images/logo.png';
 
 const LayoutConfig: ProLayoutProps = {
   title: '后台管理',
+  logo: logoSrc,
   fixedHeader: true,
   fixSiderbar: true,
   siderWidth: 188,
@@ -38,7 +39,6 @@ const BasicLayout = () => {
 
   return (
     <ProLayout
-      className='bbs-banwu-basic-layout'
       location={{ pathname }}
       {...LayoutConfig}
       loading={loading}

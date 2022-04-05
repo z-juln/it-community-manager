@@ -74,16 +74,16 @@ const ProviderApply = () => {
   return (
     <div>
       <Form form={form} layout='inline' initialValues={{ status: 'all' }}>
-        <Form.Item name='uid' label='uid' style={{ width: 130 }}>
+        <Form.Item name='uid' label='用户id' style={{ width: 180 }}>
           <Input
-            placeholder='请输入uid'
+            placeholder='请输入用户id'
             allowClear
             onPressEnter={() => handleSearch()}
           />
         </Form.Item>
-        <Form.Item name='name' label='name' style={{ width: 160 }}>
+        <Form.Item name='name' label='用户名' style={{ width: 180 }}>
           <Input
-            placeholder='请输入name'
+            placeholder='请输入用户名'
             allowClear
             onPressEnter={() => handleSearch()}
           />
@@ -111,14 +111,22 @@ const ProviderApply = () => {
         rowKey='id'
         dataSource={dataSource}
         columns={[
-          { title: 'uid', dataIndex: 'uid', },
-          { title: 'name', dataIndex: 'status', render: (_, record) => (record.user.name)},
-          { title: 'status', dataIndex: 'status', render: getStatusText},
+          { title: '用户id', dataIndex: 'uid', },
+          { title: '用户名', dataIndex: 'status', render: (_, record) => (record.user.name)},
+          { title: '申请状态', dataIndex: 'status', render: getStatusText},
           {
             title: '操作',
             render(_, record) {
-              if (record.status === 'pass') return '-----';
-              return <Button onClick={() => handleApplyPass(record.uid)}>通过申请</Button>;
+              const disabled = record.status === 'pass';
+              return (
+                <Button
+                  style={disabled ? { opacity: 0.4 } : {}}
+                  disabled={disabled}
+                  onClick={() => handleApplyPass(record.uid)}
+                >
+                  通过申请
+                </Button>
+              );
             }
           },
         ]}

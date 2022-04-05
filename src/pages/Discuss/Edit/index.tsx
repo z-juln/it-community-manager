@@ -2,7 +2,7 @@ import type { PaginationProps } from 'antd/es/pagination';
 import { memo, useEffect, useState } from 'react'
 import { Button, Form, Input, message, Select, Space, Table } from 'antd'
 import { debounce } from 'lodash-es'
-import * as API from '@/apis/discuss'
+import * as API from '@/apis/Discuss';
 import { Discuss, SavedUserResult } from '@/model';
 
 export interface SearchParams {
@@ -88,14 +88,14 @@ const DiscussEdit = () => {
             onPressEnter={() => handleSearch()}
           />
         </Form.Item>
-        <Form.Item name='user_id' label='uid' style={{ width: 160 }}>
+        <Form.Item name='user_id' label='用户id' style={{ width: 200 }}>
           <Input
-            placeholder='请输入uid'
+            placeholder='请输入用户id'
             allowClear
             onPressEnter={() => handleSearch()}
           />
         </Form.Item>
-        <Form.Item name='content' label='评论内容(模糊查询)' style={{ width: 260 }}>
+        <Form.Item name='content' label='评论内容(模糊查询)' style={{ width: 280 }}>
           <Input
             placeholder='请输入评论内容'
             allowClear
