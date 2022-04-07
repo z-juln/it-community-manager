@@ -21,6 +21,23 @@ const initRoutes: RouteConfigType[] = [
     ],
   },
   {
+    path: '/zone',
+    name: '专区管理',
+    icon: MenuIconMap['home'],
+    children: [
+      {
+        path: '/zone',
+        exact: true,
+        redirect: '/zone/edit',
+      },
+      {
+        path: '/zone/edit',
+        name: '编辑',
+        template: lazy(() => import('@/pages/Zone/Edit')),
+      },
+    ],
+  },
+  {
     path: '/study-route',
     name: '学习路线管理',
     icon: MenuIconMap['home'],

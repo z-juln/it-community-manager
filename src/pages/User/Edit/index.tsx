@@ -3,7 +3,7 @@ import React, { memo, useEffect, useState } from 'react'
 import { Button, Form, Input, InputRef, message, Select, Space, Table } from 'antd'
 import { debounce } from 'lodash-es'
 import * as API from '@/apis/User'
-import { Discuss, SavedUserResult, UserRole } from '@/model';
+import { SavedUserResult, UserRole } from '@/model';
 
 export interface SearchParams extends Partial<Pick<SavedUserResult, 'name' | 'uid' | 'github' | 'role' | 'type'>> {
   
@@ -15,7 +15,7 @@ const defaultPagination: PaginationProps = {
   total: 0,
 };
 
-const DiscussEdit = () => {
+const UserEdit = () => {
   const [form] = Form.useForm<SearchParams>();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -166,7 +166,7 @@ const DiscussEdit = () => {
   )
 }
 
-export default memo(DiscussEdit);
+export default memo(UserEdit);
 
 function getRoleText(role: UserRole) {
   switch (role as string) {
