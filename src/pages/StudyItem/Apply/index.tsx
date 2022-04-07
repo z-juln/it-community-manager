@@ -1,4 +1,4 @@
-import type { PaginationProps } from './interface';
+import type { PaginationProps } from 'antd/es/pagination';
 import { memo, useEffect, useState } from 'react'
 import { Button, Form, Input, message, Select, Space, Table } from 'antd'
 import { debounce } from 'lodash-es'
