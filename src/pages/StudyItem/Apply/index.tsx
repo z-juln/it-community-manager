@@ -2,13 +2,11 @@ import type { PaginationProps } from './interface';
 import { memo, useEffect, useState } from 'react'
 import { Button, Form, Input, message, Select, Space, Table } from 'antd'
 import { debounce } from 'lodash-es'
-import * as API from '@/apis/Provider'
-import { Apply } from '@/model';
+import * as API from '@/apis/StudyItem';
+import { Apply, StudyItem } from '@/model';
 
-export interface SearchParams {
-  uid: number;
-  name: string;
-  status: 'watting' | 'pass';
+export interface SearchParams extends Pick<Apply, 'uid' | 'status' | 'target_id'> {
+  title: string;
 }
 
 const defaultPagination: PaginationProps = {
@@ -17,24 +15,39 @@ const defaultPagination: PaginationProps = {
   total: 0,
 };
 
+type DisplayDataSource = (Apply & { studyItem: StudyItem })[];
+
 const ProviderApply = () => {
   const [form] = Form.useForm<SearchParams>();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [dataSource, setDataSource] = useState<Apply[]>([]);
   const [pagination, setPagination] = useState<PaginationProps>(() => defaultPagination);
+  const [displayDataSource, setDisplayDataSource] = useState<DisplayDataSource>([]);
+
+  useEffect(() => {
+    (async () => {
+      const ids = dataSource.map(item => item.target_id);
+      const newDisplayDataSource: DisplayDataSource = [...dataSource] as any;
+      for (let i = 0; i < newDisplayDataSource.length; i++) {
+        const item = newDisplayDataSource[i];
+        item.studyItem = (await API.getStudyItemInfo(item.target_id!)).data;
+      }
+      setDisplayDataSource(newDisplayDataSource);
+    })();
+  }, [dataSource]);
 
   const handleSearch = debounce((pagination: PaginationProps = defaultPagination) => {
     setIsLoading(true);
 
     form.validateFields().then(values => {
-      if (values.name === '') {
-        values.name = undefined as any;
+      if (values.title === '') {
+        values.title = undefined as any;
       }
       if (values.status === 'all' as any) {
         values.status = undefined as any;
       }
-      API.getProviderApplyList(values).then(res => {
+      API.getApplyList(values).then(res => {
         setDataSource(res.data || []);
         // setPagination({
         //   ...pagination,
@@ -58,8 +71,8 @@ const ProviderApply = () => {
     handleSearch();
   }, []);
 
-  const handleApplyPass = (uid: number) => {
-    API.passApply(uid)
+  const handleApplyPass = (id: number) => {
+    API.passApply(id)
       .then(res => {
         if (res.code === 1) {
           message.success('操作成功');
@@ -81,9 +94,16 @@ const ProviderApply = () => {
             onPressEnter={() => handleSearch()}
           />
         </Form.Item>
-        <Form.Item name='name' label='name' style={{ width: 160 }}>
+        <Form.Item name='target_id' label='学点id' style={{ width: 180 }}>
           <Input
-            placeholder='请输入name'
+            placeholder='请输入学点id'
+            allowClear
+            onPressEnter={() => handleSearch()}
+          />
+        </Form.Item>
+        <Form.Item name='title' label='标题(模糊匹配)' style={{ width: 220 }}>
+          <Input
+            placeholder='请输入标题'
             allowClear
             onPressEnter={() => handleSearch()}
           />
@@ -107,18 +127,19 @@ const ProviderApply = () => {
 
       <br />
 
-      <Table<Apply>
+      <Table<DisplayDataSource[number]>
         rowKey='id'
-        dataSource={dataSource}
+        dataSource={displayDataSource}
         columns={[
           { title: 'uid', dataIndex: 'uid', },
-          { title: 'name', dataIndex: 'status', render: (_, record) => (record.user.name)},
-          { title: 'status', dataIndex: 'status', render: getStatusText},
+          { title: 'id', dataIndex: 'target_id', width: 150 },
+          { title: '标题', dataIndex: 'title', render: (_, record) => <a href={`http://127.0.0.1:3333/study-item/${record.target_id!}`} target='_blank'>{record.studyItem.title}</a>, },
+          { title: '状态', dataIndex: 'status', render: getStatusText, },
           {
             title: '操作',
             render(_, record) {
               if (record.status === 'pass') return '-----';
-              return <Button onClick={() => handleApplyPass(record.uid)}>通过申请</Button>;
+              return <Button onClick={() => handleApplyPass(record.target_id!)}>通过申请</Button>;
             }
           },
         ]}

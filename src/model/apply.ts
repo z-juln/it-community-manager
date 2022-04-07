@@ -1,17 +1,23 @@
 import { SavedUserResult } from "./user";
 
+export type ApplyTargetTye = 'provider' | 'admin' | 'zone' | 'study-route' | 'study-set' | 'study-item';
+
+export type ApplyStatus = 'waitting' | 'pass' | 'rejected';
+
 export interface DBApply {
   uid: number;
-  target: 'provider';
+  target_id?: number;
+  target: ApplyTargetTye;
   condition: string;
-  status: 'waitting' | 'pass';
+  status: ApplyStatus;
 }
 
 export interface Apply {
   uid: number;
-  target: 'provider';
+  target_id?: number;
+  target: ApplyTargetTye;
   condition: string;
-  status: 'waitting' | 'pass';
+  status: ApplyStatus;
   user: SavedUserResult;
 }
 
