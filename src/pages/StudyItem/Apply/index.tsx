@@ -133,7 +133,7 @@ const ProviderApply = () => {
         columns={[
           { title: 'uid', dataIndex: 'uid', },
           { title: 'id', dataIndex: 'target_id', width: 150 },
-          { title: '标题', dataIndex: 'title', render: (_, record) => <a href={`http://127.0.0.1:3333/study-item/${record.target_id!}`} target='_blank'>{record.studyItem.title}</a>, },
+          { title: '标题', dataIndex: 'title', render: (_, record) => <a href={`http://127.0.0.1:3333/study-item/${record.target_id!}?role=admin`} target='_blank'>{record.studyItem.title}</a>, },
           { title: '状态', dataIndex: 'status', render: getStatusText, },
           {
             title: '操作',
