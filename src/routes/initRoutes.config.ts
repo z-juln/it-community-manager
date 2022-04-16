@@ -108,11 +108,11 @@ const initRoutes: RouteConfigType[] = [
         name: '学点审核',
         template: lazy(() => import('@/pages/StudyItem/Apply')),
       },
-      {
-        path: '/study-item/edit',
-        name: '学点编辑',
-        template: lazy(() => import('@/pages/StudyItem/Edit')),
-      },
+      // {
+      //   path: '/study-item/edit',
+      //   name: '学点编辑',
+      //   template: lazy(() => import('@/pages/StudyItem/Edit')),
+      // },
     ],
   },
   {
